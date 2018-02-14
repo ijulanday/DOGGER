@@ -1,8 +1,12 @@
 package com.example.ianulanday.jsongetstuff;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
+import android.view.View;
 
 import org.json.JSONArray;
+
 
 /**
  * Created by ianulanday on 2/13/2018.
@@ -24,6 +28,10 @@ public class RetrieveJSONData extends AsyncTask<Void, Void, Void>{
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
 
-        //TODO: actually do something here.
+        String address = "https://www.google.com";
+        Uri addressUri = Uri.parse(address);
+
+        Intent go2google = new Intent(Intent.ACTION_VIEW, addressUri);
+        MainActivity.this.startActivity(go2google);
     }
 }
