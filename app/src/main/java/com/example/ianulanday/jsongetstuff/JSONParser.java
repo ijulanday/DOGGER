@@ -3,6 +3,7 @@ package com.example.ianulanday.jsongetstuff;
 import android.os.AsyncTask;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -21,14 +22,14 @@ public class JSONParser {
 
     //TODO read over this code more
 
-    public JSONArray getJSONArray(String url_str) {
+    public JSONObject getJSONObject(String url_str) {
         try {
             URL url = new URL(url_str);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             InputStream in = new BufferedInputStream(urlConnection.getInputStream());
 
             String result = convertStreamToString(in);
-            JSONArray json = new JSONArray(result);
+            JSONObject json = new JSONObject(result);
             in.close();
             return json;
         } catch (Exception e) {
